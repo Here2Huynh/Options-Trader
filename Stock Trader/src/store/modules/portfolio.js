@@ -14,6 +14,7 @@ const mutations = {
         quantity: quantity,
       });
     }
+    state.funds -= stockPrice * quantity;
   },
   SELL_STOCK(state, { stockId, quantity, stockPrice }) {
     const record = state.stocks.find((e) => e.id == stockId);
@@ -40,7 +41,7 @@ const getters = {
         id: stock.id,
         quantity: stock.quantity,
         name: record.name,
-        price: record.name,
+        price: record.price,
       };
     });
   },
