@@ -2,7 +2,7 @@
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
-        <router-link to="/" class="navbar-brand">Stock Trader</router-link>
+        <router-link to="/" class="navbar-brand">Tendies Log</router-link>
       </div>
 
       <div class="collapse navbar-collapse">
@@ -14,7 +14,9 @@
             <a>Stocks</a>
           </router-link>
         </ul>
-        <strong class="navbar-text navbar-right">Funds: {{ funds | currency }}</strong>
+        <strong class="navbar-text navbar-right"
+          >Funds: {{ funds | currency }}</strong
+        >
         <!-- <strong class="navbar-text navbar-right">Funds: {{ funds | currency }}</strong> -->
         <ul class="nav navbar-nav navbar-right">
           <li>
@@ -39,13 +41,12 @@
             </a>
             <ul class="dropdown-menu">
               <li>
-                <a href="#">Save Data</a>
+                <a href="#" @click="saveData">Save Data</a>
               </li>
-              <!-- @click="saveData" -->
+
               <li>
-                <a href="#">Load Data</a>
+                <a href="#" @click="loadData">Load Data</a>
               </li>
-              <!-- @click="loadData" -->
             </ul>
           </li>
         </ul>
@@ -56,7 +57,6 @@
   </nav>
 </template>
 
-
 <script>
 import { mapActions } from "vuex";
 export default {
@@ -66,13 +66,27 @@ export default {
   computed: {
     funds() {
       return this.$store.getters.funds;
-    }
+    },
   },
   methods: {
-    ...mapActions(["randomizeStocks"]),
+    ...mapActions({
+      randomizeStocks: "randomizeStocks",
+      fetchData: "loadData",
+    }),
     endDay() {
       this.randomizeStocks();
-    }
-  }
+    },
+    saveData() {
+      const data = {
+        funds: this.$store.getters.funds,
+        stockPortfolio: this.$store.getters.stockPortfolio,
+        stocks: this.$store.getters.stocks,
+      };
+      this.$http.put("data.json", data);
+    },
+    loadData() {
+      this.fetchData();
+    },
+  },
 };
 </script>
