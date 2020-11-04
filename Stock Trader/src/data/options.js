@@ -1,0 +1,26 @@
+export default [
+  {
+    id: 1,
+    openDate: "2020/10/23",
+    expiry: "2020/11/27",
+    close: "",
+    product: "INTC",
+    type: "CSP",
+    strike: "47",
+    openPrice: "1.47",
+    filledPrice: "-",
+    pnl: "-",
+  },
+  {
+    id: 2,
+    openDate: "2020/10/30",
+    expiry: "2020/12/04",
+    close: "",
+    product: "RKT",
+    type: "CC",
+    strike: "25",
+    openPrice: ".42",
+    filledPrice: "-",
+    pnl: "-",
+  },
+];

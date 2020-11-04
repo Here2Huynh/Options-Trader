@@ -12,20 +12,20 @@
 </template>
 
 <script>
-import Header from "./components/Header.vue";
+import Navbar from "./components/Navbar.vue";
 export default {
   components: {
-    appHeader: Header
+    appHeader: Navbar,
   },
   created() {
     this.$store.dispatch("initStock");
-  }
+  },
 };
 </script>
 
 <style>
 body {
-  padding: 30px;
+  background-color: #343a40;
 }
 
 .slide-enter-active {

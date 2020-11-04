@@ -1,11 +1,12 @@
 import Home from "./components/Home.vue";
 import Portfolio from "./components/portfolio/Portfolio.vue";
 import Stocks from "./components/stocks/Stocks.vue";
+import Options from "./components/options/Options.vue";
 
 export const routes = [
   {
     path: "/",
-    component: Home,
+    component: Options,
   },
   {
     path: "/portfolio",
@@ -15,4 +16,8 @@ export const routes = [
     path: "/stocks",
     component: Stocks,
   },
+  // {
+  //   path: "/options",
+  //   component: Options,
+  // },
 ];

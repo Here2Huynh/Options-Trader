@@ -1,14 +1,14 @@
 {
   "name": "vue-cli",
   "description": "A Vue.js project",
-  "author": "Maximilian Schwarzmüller <mblacky0@gmail.com>",
+  "author": "John Huynh <jhnhynh9@gmail.com",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --inline --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
-    "bootstrap": "^3.3.7",
+    "bootstrap-icons": "^1.1.0",
     "vue": "^2.0.1",
     "vue-resource": "^1.5.1",
     "vue-router": "^3.4.8",
