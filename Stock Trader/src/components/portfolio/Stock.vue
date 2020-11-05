@@ -4,9 +4,7 @@
       <div class="panel-heading">
         <h3 class="panel-title">
           {{ stock.name }}
-          <small
-            >(Price: {{ stock.price }} | Quantity: {{ stock.quantity }})</small
-          >
+          <small>(Price: {{ stock.price }} | Quantity: {{ stock.quantity }})</small>
         </h3>
       </div>
       <div class="panel-body">
@@ -29,9 +27,7 @@
               quantity <= 0 ||
               !Number.isInteger(quantity)
             "
-          >
-            Sell
-          </button>
+          >Sell</button>
         </div>
       </div>
     </div>
@@ -55,27 +51,27 @@ export default {
   props: ["stock"],
   data() {
     return {
-      quantity: 0,
+      quantity: 0
     };
   },
   computed: {
     insufficientQuantity() {
       return this.quantity > this.stock.quantity;
-    },
+    }
   },
   methods: {
     ...mapActions({
-      placeSellOrder: "sellStock",
+      placeSellOrder: "sellStock"
     }),
     sellStock() {
       const order = {
         stockId: this.stock.id,
         stockPrice: this.stock.price,
-        quantity: this.quantity,
+        quantity: this.quantity
       };
       this.placeSellOrder(order);
       this.quantity = 0;
-    },
-  },
+    }
+  }
 };
 </script>

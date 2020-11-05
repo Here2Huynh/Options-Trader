@@ -5,25 +5,28 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="#"
-                ><img
+              <a class="nav-link" href="#">
+                <img
                   src="../assets/img/plus.svg"
-                  alt=""
+                  alt
                   width="32"
                   height="32"
                   class="logOptions"
+                  @click="changeMode('add')"
                 />
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#"
-                ><img
+              <a class="nav-link" href="#">
+                <img
                   src="../assets/img/gear.svg"
-                  alt=""
+                  alt
                   width="32"
                   height="32"
                   class="logOptions"
-              /></a>
+                  @click="changeMode('edit')"
+                />
+              </a>
             </li>
           </ul>
         </div>
@@ -50,3 +53,21 @@ img {
   filter: invert(1);
 }
 </style>
+
+<script>
+import { mapActions } from "vuex";
+
+export default {
+  data() {
+    return {
+      mode: "view"
+    };
+  },
+  methods: {
+    ...mapActions(["setMode"]),
+    changeMode(mode) {
+      this.setMode(mode);
+    }
+  }
+};
+</script>

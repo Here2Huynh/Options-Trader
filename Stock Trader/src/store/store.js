@@ -3,6 +3,7 @@ import Vuex from "vuex";
 
 import stocks from "./modules/stocks";
 import portfolio from "./modules/portfolio";
+import options from "./modules/options";
 
 import * as actions from "./actions";
 
@@ -13,5 +14,6 @@ export default new Vuex.Store({
   modules: {
     stocks,
     portfolio,
+    options,
   },
 });
