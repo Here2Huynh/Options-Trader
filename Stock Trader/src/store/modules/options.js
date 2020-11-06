@@ -9,7 +9,7 @@ const mutations = {
   EDIT_TRADE(state) {},
   CHANGE_MODE(state, mode) {
     state.mode = mode;
-    console.log("mode", mode);
+    console.log("state", state);
   },
 };
 
@@ -20,7 +20,7 @@ const actions = {
 };
 
 const getters = {
-  getMode(state) {
+  getMode: (state) => {
     return state.mode;
   },
 };

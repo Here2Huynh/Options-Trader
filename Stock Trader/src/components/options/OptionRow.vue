@@ -9,13 +9,26 @@
     <td>{{ option.openPrice }}</td>
     <td>{{ option.filledPrice }}</td>
     <td>{{ option.pnl }}</td>
+    <td style="white-space:pre-wrap; word-wrap:break-word">{{ option.adjustments.rolled | roll }}</td>
+    <td>{{ option.adjustments.wheel | wheel }}</td>
+    <!-- <td>{{ showAdjustments(option) }}</td> -->
   </tr>
 </template>
 
-<style scoped></style>
+<style scoped>
+/* td.break {
+  float: left;
+  line-height: 22px;
+} */
+</style>
 
 <script>
 export default {
   props: ["option"],
+  methods: {
+    showAdjustments(option) {
+      return option.adjustments.rolled;
+    }
+  }
 };
 </script>

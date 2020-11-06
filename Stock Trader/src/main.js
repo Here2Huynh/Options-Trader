@@ -15,6 +15,31 @@ Vue.filter("currency", (value) => {
   return "$" + value.toLocaleString();
 });
 
+Vue.filter("roll", (value) => {
+  if (value) {
+    const sign = Math.sign(value.pnl) == 1 ? "+ " : "- ";
+    return "x " + value.count + " | " + sign + value.pnl;
+  } else {
+    return "-";
+  }
+});
+
+Vue.filter("wheel", (value) => {
+  if (value) {
+    return (
+      "$: " +
+      value.costBasis +
+      " | " +
+      "CC: " +
+      value.CC +
+      " | CSP: " +
+      value.CSP
+    );
+  } else {
+    return "-";
+  }
+});
+
 const router = new VueRouter({
   mode: "history",
   routes,

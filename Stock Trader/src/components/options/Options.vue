@@ -10,15 +10,13 @@
         <th scope="col">strike</th>
         <th scope="col">open</th>
         <th scope="col">filled</th>
-        <th scope="col">p / l</th>
+        <th scope="col" class="pnlWidth">p / l</th>
+        <th scope="col">roll</th>
+        <th scope="col">wheel</th>
       </tr>
     </thead>
     <tbody>
-      <option-row
-        v-for="option in options"
-        :key="option.id"
-        :option="option"
-      ></option-row>
+      <option-row v-for="option in options" :key="option.id" :option="option"></option-row>
     </tbody>
   </table>
 </template>
@@ -35,6 +33,10 @@
 th {
   text-transform: uppercase;
 }
+
+.pnlWidth {
+  min-width: 100px;
+}
 </style>
 
 <script>
@@ -43,11 +45,11 @@ import options from "../../data/options";
 export default {
   data() {
     return {
-      options,
+      options
     };
   },
   components: {
-    optionRow: OptionRow,
-  },
+    optionRow: OptionRow
+  }
 };
 </script>
